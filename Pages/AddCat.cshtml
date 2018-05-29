@@ -3,6 +3,7 @@
 
 @{
    //TODO IsPost+Validation
+
 }
 
 
@@ -16,11 +17,12 @@
         <div class="col-sm-6 col-sm-offset-3">
             <form method="post" >
                     <legend>Add Cat</legend>
+                    <div asp-validation-summary="All"></div>
                     <div class="form-group">
                         <label for="Name">Name</label>
-                        <input type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter name">
+                        <input asp-for="cat.Name" type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter name">
                     </div>
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label for="Sex">Sex</label>
                         <div class="input-group">
                             <label class="radio-inline">
@@ -58,7 +60,7 @@
                             <input type="number" class="form-control" id="inputPrice" placeholder="Price">
                             <div class="input-group-addon">.00</div>
                         </div>
-                    </div> -->
+                    </div>
                     <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>

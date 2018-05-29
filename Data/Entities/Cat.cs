@@ -15,7 +15,7 @@ namespace via_web_application {
 
     [Range(0, 100)]
     [DataType(DataType.Currency)]
-    [Required]
+    // [Required]
     public decimal Price { get; set; }
     public DateTime Birthdate { get; set; }
     public char Sex { get; set; }
