@@ -9,15 +9,15 @@ namespace via_web_application.Controllers
 
   // http://localhost:5000/api/cat
   
-  [Route("api/cat")]
+  [Route("api/[controller]")]
   public class CatController : Controller
   {
 
-    private readonly CatContext _context;
+    private readonly CatRepository catRepo;
 
-    public CatController(CatContext context)
+    public CatController(CatRepository repo)
     {
-      _context = context;
+      catRepo = repo;
     }
 
     // For now can only get all cats
@@ -25,7 +25,7 @@ namespace via_web_application.Controllers
     [HttpGet]
     public IEnumerable<Cat> Get()
     {
-      return _context.Cats.ToList();
+      return catRepo.GetAllCats();
     }
 
   }
