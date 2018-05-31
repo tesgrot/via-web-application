@@ -18,7 +18,7 @@ namespace via_web_application.Pages
 
         private readonly CatContext _db;
 
-        private readonly UserManager<ApplicationUser> _UserManager;
+        public readonly UserManager<ApplicationUser> _UserManager;
 
         public OrdersModel(UserManager<ApplicationUser> UserManager, CatContext db)
         {
@@ -31,7 +31,13 @@ namespace via_web_application.Pages
         public async Task OnGetAsync()
         {
             // https://stackoverflow.com/questions/45362495/nested-foreach-loop-in-asp-net-mvc-core-nullreferenceexception
-            Orders = await _db.Orders.Include(order => order.Items).Where(order => order.OwnerID == _UserManager.GetUserId(User)).ToListAsync();
+            if (User.IsInRole("Administrator")) {
+                Orders = await _db.Orders.Include(order => order.Items).ToListAsync();
+                
+            }
+            else {
+                Orders = await _db.Orders.Include(order => order.Items).Where(order => order.OwnerID == _UserManager.GetUserId(User)).ToListAsync();
+            }
         }
     }
 }

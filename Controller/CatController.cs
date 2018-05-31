@@ -17,15 +17,11 @@ namespace via_web_application.Controllers
     public class CatController : Controller
     {
 
-        private readonly CatRepository catRepo;
-        private readonly CatContext catContext;
-        private readonly IHostingEnvironment _appEnvironment;
+        private readonly CatContext _context;
 
-        public CatController(CatContext context, CatRepository repo, IHostingEnvironment environment)
+        public CatController( CatContext CatContext)
         {
-            catContext = context;
-            catRepo = repo;
-            _appEnvironment = environment;
+            _context = CatContext;
         }
 
         // For now can only get all cats
@@ -33,7 +29,7 @@ namespace via_web_application.Controllers
         [HttpGet]
         public IEnumerable<Cat> Get()
         {
-            return catRepo.GetAllCats();
+            return _context.Cats.OrderBy(p => p.Name).ToList();
         }
     }
 }

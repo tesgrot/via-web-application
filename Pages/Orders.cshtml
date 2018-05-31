@@ -1,5 +1,6 @@
 @page
 @model OrdersModel
+@inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Your Orders";
 }
@@ -28,6 +29,13 @@
                     <tr>
                         <th>Date</th>
                         <td>@order.Date.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                     <tr>
+                        <th>Email</th>
+                        @{
+                            ApplicationUser orderUser = await UserManager.FindByIdAsync(order.OwnerID);
+                        }
+                        <td>@orderUser.Email</td>
                     </tr>
                     <tr>
                         <th>Cats</th>

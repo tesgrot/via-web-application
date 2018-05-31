@@ -13,11 +13,13 @@ namespace via_web_application.Controllers
     public class AccountController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
+
         private readonly ILogger _logger;
 
         public AccountController(SignInManager<ApplicationUser> signInManager, ILogger<AccountController> logger)
         {
             _signInManager = signInManager;
+
             _logger = logger;
         }
 
@@ -29,5 +31,9 @@ namespace via_web_application.Controllers
             _logger.LogInformation("User logged out.");
             return RedirectToPage("/Index");
         }
+
+
+         
+
     }
 }
