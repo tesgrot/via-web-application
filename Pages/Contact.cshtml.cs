@@ -12,7 +12,7 @@ namespace via_web_application.Pages
 
         public void OnGet()
         {
-            Message = "Your contact page.";
+            Message = "VIA Cat Store";
         }
     }
 }

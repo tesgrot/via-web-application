@@ -10,6 +10,11 @@ namespace via_web_application.Pages
 {
     public class IndexModel : PageModel
     {
+        public string Message { get; set; }
 
+        public void OnGet()
+        {
+            Message = "VIA Cat Store";
+        }
     }
 }
