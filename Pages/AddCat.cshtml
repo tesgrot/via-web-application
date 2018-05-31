@@ -6,16 +6,13 @@
 
 }
 
-
-
-
 <div class="jumbotron"><h2>Add Cat</h2></div>
 
 
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
-            <form method="post" >
+            <form method="post">
                     <legend>Add Cat</legend>
                     <div asp-validation-summary="All"></div>
                     <div class="form-group">
@@ -26,38 +23,38 @@
                         <label for="Sex">Sex</label>
                         <div class="input-group">
                             <label class="radio-inline">
-                                <input type="radio" class="form-control" name="inlineRadioOptions" id="inputSexMale" value="male"> Male
+                                <input asp-for="cat.Sex" type="radio" class="form-control" name="inlineRadioOptions" id="inputSexMale" value="m"> Male
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" class="form-control" name="inlineRadioOptions" id="inputSexFemale" value="female"> Female
+                                <input asp-for="cat.Sex" type="radio" class="form-control" name="inlineRadioOptions" id="inputSexFemale" value="f"> Female
                             </label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="Breed">Breed</label>
-                        <input type="text" class="form-control" id="inputBreed" aria-describedby="breedHelp" placeholder="Enter breed">
+                        <input asp-for="cat.Breed" type="text" class="form-control" id="inputBreed" aria-describedby="breedHelp" placeholder="Enter breed">
                     </div>
                     <div class="form-group">
                         <label for="Date">Birth date</label>
-                        <input type="date" class="form-control" id="inputDate" aria-describedby="dateHelp" placeholder="Enter date (dd/mm/yyyy)">
+                        <input asp-for="cat.Birthdate" type="date" class="form-control" id="inputDate" aria-describedby="dateHelp" placeholder="Enter date (dd/mm/yyyy)">
                     </div>
                     <div class="form-group">
                         <label for="Weight">Weight</label>
-                        <input type="number" class="form-control" id="inputWeight" aria-describedby="weightHelp" placeholder="Enter weight">
+                        <input asp-for="cat.Weight" type="number" class="form-control" id="inputWeight" aria-describedby="weightHelp" placeholder="Enter weight">
                     </div>
                     <div class="form-group">
                         <label for="Color">Color</label>
-                        <input type="text" class="form-control" id="inputColor" aria-describedby="colorHelp" placeholder="Enter color">
+                        <input  asp-for="cat.Color" type="text" class="form-control" id="inputColor" aria-describedby="colorHelp" placeholder="Enter color">
                     </div>
                     <div class="form-group">
                         <label for="Picture">Picture</label>
-                        <input type="file"id="inputPicture" aria-describedby="pictureHelp">
+                        <input asp-for="cat.Picture" type="file"id="inputPicture" aria-describedby="pictureHelp">
                     </div>
                     <div class="form-group">
-                        <label for="Weight">Price</label>
+                        <label for="Price">Price</label>
                         <div class="input-group">
                             <div class="input-group-addon">DKK</div>
-                            <input type="number" class="form-control" id="inputPrice" placeholder="Price">
+                            <input asp-for="cat.Price" type="number" class="form-control" id="inputPrice" placeholder="Price">
                             <div class="input-group-addon">.00</div>
                         </div>
                     </div>

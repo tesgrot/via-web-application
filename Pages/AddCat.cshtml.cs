@@ -32,9 +32,5 @@ namespace via_web_application.Pages
             await _db.SaveChangesAsync();
             return RedirectToPage("/Index");
         }
-        // public void OnGet()
-        // {
-
-        // }
     }
 }
