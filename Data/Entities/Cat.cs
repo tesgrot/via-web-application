@@ -17,7 +17,6 @@ namespace via_web_application {
     // [Required]
     public decimal Price { get; set; }
     public DateTime Birthdate { get; set; }
-    public char Sex { get; set; }
 
     public string Breed { get; set; }
 

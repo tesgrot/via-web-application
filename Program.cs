@@ -9,6 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using via_web_application.Services;
+
 namespace via_web_application
 {
     public class Program
@@ -24,6 +29,9 @@ namespace via_web_application
                 {
                     var context = services.GetRequiredService<CatContext>();
                     DbInitializer.Initialize(context);
+                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                    DbInitializer.InitializeRoles(roleManager, userManager);
                 }
                 catch (Exception ex)
                 {
@@ -39,5 +47,8 @@ namespace via_web_application
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .Build();
+
+
+
     }
 }
