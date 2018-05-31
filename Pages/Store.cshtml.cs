@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using via_web_application;
 using via_web_application.Services;
 
@@ -22,12 +23,13 @@ namespace via_web_application.Pages
             _db = db;
         }
 
+        [BindProperty]
+        public Cat cat { get; set; }
 
-        public IEnumerable<Cat> cats;
-
-        public void OnGet()
+        public IList<Cat> Cats { get; set; } = new List<Cat>();
+        public async Task OnGetAsync()
         {
-            cats = _db.Cats.OrderBy(p => p.Name).ToList();
+            Cats = await _db.Cats.ToListAsync();
         }
     }
 }
