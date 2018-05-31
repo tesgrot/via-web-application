@@ -8,7 +8,7 @@ namespace via_web_application.Models
     {
         public int ID { get; set; }
         public User User { get; set; }
-        public List<Cat> Cats { get; set; }
+        public Basket Basket { get; set; }
         public DateTime OrderDate { get; set; }
         public string Status { get; set; }
     }
