@@ -1,8 +1,8 @@
 # VIA Pet Store Web Service
 
 * web service application: cat “e-shop”
-* login with roles
-* Administrator can upload cats to sell and sees all orders information
+* registration and login ability
+* Administrator can upload cats to sell and see all orders information (login e-mail: admin@admin.com password: 123456789)
 * Logged in user sees available cats and can make order
 * Database contains 4 pre-made cats
 

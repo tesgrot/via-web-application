@@ -12,7 +12,7 @@ namespace via_web_application {
 
      public string Color { get; set; }
 
-    [Range(0, 100)]
+    [Range(0, 1000)]
     [DataType(DataType.Currency)]
     // [Required]
     public decimal Price { get; set; }

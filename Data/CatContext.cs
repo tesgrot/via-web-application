@@ -10,24 +10,24 @@ using Microsoft.EntityFrameworkCore;
 namespace via_web_application
 {
 
-  public class CatContext : IdentityDbContext<ApplicationUser>
-  {
-    public CatContext(DbContextOptions<CatContext> options) : base(options)
+    public class CatContext : IdentityDbContext<ApplicationUser>
     {
+        public CatContext(DbContextOptions<CatContext> options) : base(options)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            // Customize the ASP.NET Identity model and override the defaults if needed.
+            // For example, you can rename the ASP.NET Identity table names and more.
+            // Add your customizations after calling base.OnModelCreating(builder);
+        }
+
+        // Tables
+        public DbSet<Cat> Cats { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
     }
-
-    protected override void OnModelCreating(ModelBuilder builder)
-    {
-      base.OnModelCreating(builder);
-      // Customize the ASP.NET Identity model and override the defaults if needed.
-      // For example, you can rename the ASP.NET Identity table names and more.
-      // Add your customizations after calling base.OnModelCreating(builder);
-    }
-
-    // Tables
-    public DbSet<Cat> Cats { get; set; }
-    
-    public DbSet<Order> Orders { get; set; }
-
-  }
 }
