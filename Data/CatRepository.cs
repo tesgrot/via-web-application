@@ -34,37 +34,6 @@ namespace via_web_application {
       _context.SaveChanges();
     }
 
-    // public void Add(User user) {
-    //   _context.Users.Add(user);
-    //   _context.SaveChanges();
-    // }
-
-    // public void Update(int id, User user)
-    // {
-    //   if (user == null || user.ID != id)
-    //   {
-    //       return;
-    //   }
-
-    //   var dbUser = _context.Users.Find(id);
-    //   if (dbUser == null)
-    //   {
-    //       return;
-    //   }
-
-    //   dbUser.Name = user.Name;
-    //   dbUser.Address = user.Address;
-    //   dbUser.City = user.City;
-    //   dbUser.Country = user.Country;
-    //   dbUser.Email = user.Email;
-    //   dbUser.Phone = user.Phone;
-    //   dbUser.Password = user.Password;
-    //   dbUser.Type = user.Type;
-
-    //   _context.Users.Update(user);
-    //   _context.SaveChanges();
-    // } 
-
     public void Update(int id, Order order)
     {
       if (order == null || order.ID != id)
@@ -79,7 +48,6 @@ namespace via_web_application {
       }
 
       dbOrder.Date = order.Date;
-      // dbOrder.User = order.User;
       dbOrder.Status = order.Status;
       dbOrder.Items = order.Items;
 
