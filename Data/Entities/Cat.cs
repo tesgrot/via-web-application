@@ -10,8 +10,7 @@ namespace via_web_application {
     [Required]
     public string Name { get; set; }
 
-    [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")] // The color of a cat must only contain letters (i.e. no white-space, numbers or special characters)
-    public string Color { get; set; }
+     public string Color { get; set; }
 
     [Range(0, 100)]
     [DataType(DataType.Currency)]
