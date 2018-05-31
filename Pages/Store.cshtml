@@ -1,0 +1,14 @@
+@page
+@model StoreModel
+@{
+    ViewData["Title"] = "Store";
+}
+<h2>@ViewData["Title"]</h2>
+
+
+@foreach (var cat in Model.cats)
+{
+    <tr>
+        <td>@cat.Name</td>
+    </tr>
+}

@@ -11,9 +11,10 @@ using via_web_application;
 namespace viawebapplication.Migrations
 {
     [DbContext(typeof(CatContext))]
-    partial class CatContextModelSnapshot : ModelSnapshot
+    [Migration("20180530204956_mig1")]
+    partial class mig1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,9 +1,14 @@
+@using Microsoft.AspNetCore.Identity
+@using via_web_application
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - via_web_application</title>
+    <title>@ViewData["Title"] - ContactManager</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,15 +31,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-page="/Index" class="navbar-brand">VIA Pet Store</a>
+                <a asp-page="/Index" class="navbar-brand">VIA Cat Store</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-page="/Index">Home</a></li>
-                    <li><a asp-page="/AddCat">Add Cat</a></li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li><a asp-page="/Store">Store</a></li>
+                        <li><a asp-page="/Orders">Orders</a></li>
+                        <li><a asp-page="/AddCat">Add Cat</a></li>
+
+                    }
                     <li><a asp-page="/About">About</a></li>
                     <li><a asp-page="/Contact">Contact</a></li>
                 </ul>
+                @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
@@ -42,7 +53,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - VIA Pet Store</p>
+            <p>&copy; 2018 - ContactManager</p>
         </footer>
     </div>
 
