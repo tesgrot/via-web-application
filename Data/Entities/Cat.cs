@@ -7,7 +7,7 @@ namespace via_web_application {
     public int ID { get; set; }
     
     [StringLength(20, MinimumLength = 2)]
-    [Required]
+    // [Required]
     public string Name { get; set; }
 
     [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")] // The color of a cat must only contain letters (i.e. no white-space, numbers or special characters)
@@ -25,6 +25,8 @@ namespace via_web_application {
     public decimal Weight { get; set; }
 
     public string Picture { get; set; }
+
+    public Order Order {get; set; }
 
   }
 }

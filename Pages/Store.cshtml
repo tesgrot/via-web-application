@@ -7,9 +7,10 @@
 
 
 <ul class="list-unstyled">
+    <form method="post">
     @foreach (var cat in Model.Cats)
-            {
-                <li>
+    {
+        <li>
         <div class="row">
              <div class="col-sm-12">
                 <h2>
@@ -51,8 +52,31 @@
                         <td>@cat.Color</td>
                     </tr>
                 </table>
+
+                <div class="checkbox">
+                    <label><input type="checkbox" -value="@cat.ID" asp-for="Input.Items[cat.ID]" />Add To Card</label>
+                </div>
             </div>
         </div>
-    </li>
-            }
+        </li>
+    }
+
+
+            
+                    <legend>Order</legend>
+
+                    <div asp-validation-summary="All"></div>
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input asp-for="Input.Name" type="text" class="form-control" placeholder="Full Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input asp-for="Input.Address" type="text" class="form-control" placeholder="Address">
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Submit</button>
+            </form>
 </ul>

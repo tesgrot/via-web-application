@@ -8,17 +8,17 @@ namespace via_web_application
         public int ID { get; set; }
         public DateTime Date { get; set; }
 
+        public string Status { get; set; }
+
+        public string Name { get; set; }
+
+        public string Address { get; set; }
+
+        public ICollection<Cat> Items { get; set; }
+        
         // user ID from AspNetUser table.
         public string OwnerID { get; set; }
 
-        // public User User { get; set; }
-        public string Status { get; set; }
-        public ICollection<Cat> Items { get; set; }
-        
-        public string Name { get; set; }
-
-      
-        public string Address { get; set; }
 
     }
 }

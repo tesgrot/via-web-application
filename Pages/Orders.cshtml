@@ -1,6 +1,53 @@
 @page
-@model StoreModel
+@model OrdersModel
 @{
-    ViewData["Title"] = "Orders";
+    ViewData["Title"] = "Your Orders";
 }
 <h2>@ViewData["Title"]</h2>
+
+
+<ul class="list-unstyled">
+    @foreach (var order in Model.Orders)
+    {
+        <li>
+        <div class="row">
+             <div class="col-sm-12">
+                <h3>
+                     Order: @order.ID 
+                </h3>
+
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <td>@order.Name</td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>@order.Address</td>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
+                        <td>@order.Date.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                    <tr>
+                        <th>Cats</th>
+                        <td>
+                        @foreach (Cat cat in @order.Items)
+                        {
+                            <p>ID: @cat.ID, Name: @cat.Name, Sex: @cat.Sex, 
+						     Breed: @cat.Breed, Birthdate: @cat.Birthdate.ToString("dd/MM/yyyy"),
+						     Weight: @cat.Weight, Color: @cat.Color
+                            </p>
+                        }
+
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+        </div>
+        </li>
+    }
+
+</ul>

@@ -188,7 +188,6 @@ namespace viawebapplication.Migrations
                     b.Property<string>("Color");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(20);
 
                     b.Property<int?>("OrderID");
@@ -213,7 +212,11 @@ namespace viawebapplication.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Address");
+
                     b.Property<DateTime>("Date");
+
+                    b.Property<string>("Name");
 
                     b.Property<string>("OwnerID");
 
@@ -271,7 +274,7 @@ namespace viawebapplication.Migrations
 
             modelBuilder.Entity("via_web_application.Cat", b =>
                 {
-                    b.HasOne("via_web_application.Order")
+                    b.HasOne("via_web_application.Order", "Order")
                         .WithMany("Items")
                         .HasForeignKey("OrderID");
                 });
